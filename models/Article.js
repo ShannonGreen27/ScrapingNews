@@ -8,15 +8,19 @@ var ArticleSchema = new Schema({
   // title is a required string
   title: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
+    dropDups: true
   },
   // link is a required string
   link: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
+    dropDups: true
   },
   // This only saves one comment's ObjectId, ref refers to the Comment model
-  note: {
+  comment: {
     type: Schema.Types.ObjectId,
     ref: "Comment"
   }
