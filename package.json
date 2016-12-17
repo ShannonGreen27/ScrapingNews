@@ -1,5 +1,5 @@
 {
-  "name": "scrapingnews",
+  "name": "scrapingtonPost",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShannonGreen27/ScrapingNews.git"
+    "url": "git+https://github.com/ShannonGreen27/ScrapingtonPost.git"
   },
   "author": "Shannon Green",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ShannonGreen27/ScrapingNews/issues"
+    "url": "https://github.com/ShannonGreen27/ScrapingtonPost/issues"
   },
-  "homepage": "https://github.com/ShannonGreen27/ScrapingNews#readme",
+  "homepage": "https://github.com/ShannonGreen27/ScrapingtonPost#readme",
   "dependencies": {
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
