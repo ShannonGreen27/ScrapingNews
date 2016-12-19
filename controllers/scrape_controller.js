@@ -32,7 +32,7 @@ router.get("/", function(req, res) {
 				}
 				// Or log the doc
 				else {
-				  console.log("doc: "+doc);
+				  console.log(doc);
 				}
 			});
 		});

@@ -12,7 +12,6 @@ router.get("/", function(req, res) {
     if (error) {
       console.log(error);
     } else {
-      console.log("result: "+result);
       res.render('articles/index', {
         // result is passed to handlebars to be sent to the page
         result: result
@@ -23,8 +22,9 @@ router.get("/", function(req, res) {
 
 
 // Create a new comment or replace an existing comment
-router.post("/articles/:id", function(req, res) {
+router.post("/:id", function(req, res) {
   // Create a new comment and pass the req.body to the entry
+  console.log(req.body);
   var newComment = new Comment(req.body);
 
   // And save the new comment to the db
@@ -34,17 +34,16 @@ router.post("/articles/:id", function(req, res) {
       console.log(error);
     } else {
       // Use the article id to find and update it's comment
-      Article.findOneAndUpdate({ "_id": req.params.id }, { "comment": result.comment })
+      Article.findOneAndUpdate({ "_id": req.params.id }, { "comment": result._id })
       // Execute the above query
-      .exec(function(err, res) {
+      .exec(function(err, result) {
         // Log any errors
         if (err) {
           console.log(err);
-        }
-        else {
+        } else {
           res.render('articles/index', {
           // res is passed to handlebars to be sent to the page
-          result: res
+          result: result
           }); 
         }
       });

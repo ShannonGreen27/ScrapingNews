@@ -53,6 +53,28 @@ button {
     outline: white;
     border-width: 0px;
 }
+.formArea {
+
+    margin-bottom: -20px;
+}
+
+h4 {
+    margin-bottom: 0px;
+}
+
+.commentBtn {
+
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 400px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+
+}
 
 footer {
     margin: 50px 0;
