@@ -1,0 +1,57 @@
+        <!-- Content Section -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="section-heading">Welcome to the Scrapington Post </h1>
+                        <p class="section-paragraph">Select the link you wish to see and comment on.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form action="/articles/{{this.id}}" method="post">
+    			  		<div class="form-group">
+
+                        </div>
+                        
+    				    <button type="submit" class="btn btn-primary">Submit</button>
+    				</form>
+    			</div>
+    		</div>
+    	</div>
+        <br>
+
+        <!-- Content Section -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Articles</th>
+                              </tr>
+                            </thead>
+                            <!--Where the results will be pushed by handlebars-->
+                            <tbody>
+                                {{#each result}}
+                                    <tr>
+                                        <td>
+                                            {{this.title}}
+                                            <a href="{{this.link}}" target="_blank">{{this.link}}</a>
+                                        </td>                                                                  
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
