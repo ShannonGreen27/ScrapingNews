@@ -3,12 +3,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var methodOverride = require('method-override');
-// Requiring our Comment and Article models
-var Comment = require("./models/Comment.js");
-var Article = require("./models/Article.js");
-// Our scraping tools
-var request = require("request");
-var cheerio = require("cheerio");
+var path = require('path');
+
 // Mongoose mpromise deprecated - use bluebird for promises
 var Promise = require("bluebird");
 
@@ -16,9 +12,9 @@ mongoose.Promise = Promise;
 
 
 //model controllers
-var application_controller = require('./controllers/application_controller.js');
-var scrape_controller = require('./controllers/scrape_controller.js');
-var articles_controller = require('./controllers/articles_controller.js');
+var application_controller = require('./controllers/application_controller');
+var scrape_controller = require('./controllers/scrape_controller');
+var articles_controller = require('./controllers/articles_controller');
 
 // instantiatize express
 var app = express();
@@ -48,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // what to send based on route
 app.use('/', application_controller);
 app.use('/scrape', scrape_controller);
-app.use('/articles', scrape_controller);
+app.use('/articles', articles_controller);
 
 
 // Database configuration with mongoose
@@ -69,3 +65,6 @@ db.once("open", function() {
 app.listen(3000, function() {
   console.log("App running on port 3000!");
 });
+
+// our module get's exported as app.
+module.exports = app;
