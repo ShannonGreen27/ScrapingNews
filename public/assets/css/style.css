@@ -26,7 +26,6 @@ body {
     height: 50px;
 }
 
-
 .img-center {
 	margin: 0 auto;
 }
@@ -68,12 +67,6 @@ footer {
     .navbar-header{
 
         height: 120px;
-    }
-
-    .logo {
-
-        content:url("../../assets/images/Votery_logo_KO.png");
-
     }
 
     .section-heading {

@@ -12,7 +12,7 @@ router.get("/", function(req, res) {
     if (error) {
       console.log(error);
     } else {
-      console.log(result);
+      console.log("result: "+result);
       res.render('articles/index', {
         // result is passed to handlebars to be sent to the page
         result: result

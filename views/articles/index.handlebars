@@ -4,27 +4,10 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="section-heading">Welcome to the Scrapington Post </h1>
-                        <p class="section-paragraph">Select the link you wish to see and comment on.
-                        </p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <form action="/articles/{{this.id}}" method="post">
-    			  		<div class="form-group">
-
-                        </div>
-                        
-    				    <button type="submit" class="btn btn-primary">Submit</button>
-    				</form>
-    			</div>
-    		</div>
-    	</div>
-        <br>
 
         <!-- Content Section -->
         <section>
@@ -34,7 +17,7 @@
                         <table class="table table-hover">
                             <thead>
                               <tr>
-                                <th>Articles</th>
+                                <th><h2>Articles</h2></th>
                               </tr>
                             </thead>
                             <!--Where the results will be pushed by handlebars-->
@@ -42,7 +25,7 @@
                                 {{#each result}}
                                     <tr>
                                         <td>
-                                            {{this.title}}
+                                            <strong>{{this.title}}</strong><br>
                                             <a href="{{this.link}}" target="_blank">{{this.link}}</a>
                                         </td>                                                                  
                                     </tr>
@@ -55,3 +38,18 @@
             </div>
             <!-- /.container -->
         </section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form action="/articles/{{this.id}}" method="post">
+                        <div class="form-group">
+
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
