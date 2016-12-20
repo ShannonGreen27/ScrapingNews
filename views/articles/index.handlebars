@@ -29,8 +29,10 @@
                                             <a href="{{this.link}}" target="_blank">{{this.link}}</a><br>
                                             <form class="formArea" action="/articles/{{this.id}}" method="post">
                                                 <h4>Comments:</h4>
+                                                {{#if comment}}
+                                                <br>{{this.comment}}<br><br>
+                                                {{/if}}
                                                 <textarea name="comment" id="comment"></textarea>
-
                                                 
                                                 <button type="submit" class="btn btn-primary commentBtn">Add Comment</button>
                                             </form>

@@ -19,11 +19,11 @@ var ArticleSchema = new Schema({
     unique: true,
     dropDups: true
   },
-  // This only saves one comment's ObjectId, ref refers to the Comment model
-  comment: {
+  // This only saves one comment's ObjectId, ref refers to the Comment model. use [{}] for multiple.
+  comment: [{
     type: Schema.Types.ObjectId,
     ref: "Comment"
-  }
+  }]
 });
 
 // Create the Article model with the ArticleSchema
