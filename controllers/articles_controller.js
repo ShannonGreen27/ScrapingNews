@@ -24,7 +24,7 @@ router.get("/", function(req, res) {
 
 
 // Create a new comment or replace an existing comment
-router.post("/:id", function(req, res) {
+router.post("/update/:id", function(req, res) {
   // Create a new comment and pass the req.body to the entry
   var newComment = new Comment(req.body);
 
@@ -35,18 +35,13 @@ router.post("/:id", function(req, res) {
       console.log(error);
     } else {
       // Use the article id to find and update it's comment
-      Article.findOneAndUpdate({ "_id": req.params.id }, { "comment": result._id })
+      Article.findOneAndUpdate({ "_id": req.params.id }, {$push: { "comment": result._id } }, {new: true})
       // Execute the above query
       .exec(function(err, doc) {
         // Log any errors
         if (err) {
           console.log(err);
         } else {
-          // console.log(res);
-          // console.log("__________________________________")          
-          // console.log(result);
-          // console.log("__________________________________")
-          // console.log(doc);
           res.redirect('/articles'); 
         }
       });
@@ -54,7 +49,19 @@ router.post("/:id", function(req, res) {
   });
 });
 
+router.post("/delete/:id", function(req, res) {
+  // Use the article id to find and delete it's comment
+  console.log(req.params.id);
+  Article.findOneAndRemove( {$pull: { "comment": req.params.id } })
+  // Execute the above query
+  .exec(function(err, doc) {
+    // Log any errors
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/articles'); 
+    }
+  });
+});
+
 module.exports = router;
-
-
-
