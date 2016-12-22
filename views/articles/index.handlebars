@@ -31,16 +31,20 @@
                                             {{#if comment}}
                                                 <ul>
                                                     {{#each comment}} 
-                                                        <li>                                               
-                                                            {{comment}}<br>
+                                                        <li>
+                                                            {{comment}}
                                                             {{> articles/delete-comment}}<br>
                                                         </li>
                                                     {{/each}} 
                                                 </ul>                                                   
                                             {{/if}}
                                             <form class="formArea" action="/articles/update/{{this.id}}" method="post">
-                                                <textarea name="comment" id="comment"></textarea>  
-                                                <button type="submit" class="btn btn-primary commentBtn">Add Comment</button>
+                                                <div class="commentDiv">
+                                                    <textarea name="comment" id="comment"></textarea> 
+                                                </div>
+                                                <div class="commentBtnDiv">
+                                                    <button type="submit" class="btn btn-primary commentBtn">Add Comment</button>
+                                                </div> 
                                             </form>
                                         </td>                                                                  
                                     </tr>

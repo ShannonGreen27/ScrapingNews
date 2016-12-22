@@ -3,6 +3,7 @@ var router  = express.Router();
 // Requiring our Comment and Article models
 var Comment = require("../models/Comment.js");
 var Article = require("../models/Article.js");
+var mongoose = require("mongoose");
 
 // This will get the articles we scraped from the mongoDB
 router.get("/", function(req, res) {
@@ -49,17 +50,25 @@ router.post("/update/:id", function(req, res) {
   });
 });
 
-router.post("/delete/:id", function(req, res) {
+router.delete("/delete/:id", function(req, res) {
   // Use the article id to find and delete it's comment
-  console.log(req.params.id);
-  Article.findOneAndRemove( {$pull: { "comment": req.params.id } })
+  Comment.findOneAndRemove({ "_id": mongoose.Types.ObjectId(req.params.id) })
   // Execute the above query
   .exec(function(err, doc) {
     // Log any errors
     if (err) {
       console.log(err);
     } else {
-      res.redirect('/articles'); 
+      Article.update({ $pull: { comment: { $in: [req.params.id] } } })
+        // Execute the above query
+      .exec(function(err, doc) {
+        // Log any errors
+        if (err) {
+          console.log(err);
+        } else {
+          res.redirect('/articles'); 
+        }
+      });
     }
   });
 });

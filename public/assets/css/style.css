@@ -5,29 +5,7 @@
  */
 
 body {
-    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    
-}
-
-.image-bg-fluid-height,
-.image-bg-fixed-height {
-    text-align: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-
-.image-bg-fluid-height {
-    padding: 0;
-}
-
-.image-bg-fixed-height {
-    height: 50px;
-}
-
-.img-center {
-	margin: 0 auto;
+    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */   
 }
 
 section {
@@ -39,23 +17,33 @@ section {
     font-size: 4em;
 }
 
-.section-lead {
-    margin: 30px 0;
-}
-
-.section-paragraph {
-    margin: 30px 0;
+td {
+    height: auto;
 }
 
 button {
-
     background-color : inherit;
     outline: white;
     border-width: 0px;
 }
 
-.formArea {
+.deleteBtn {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
+.commentBtnDiv {
+    padding-left: 20px;
+    height: 34px;
+    margin-bottom: 20px;
+}
+
+.commentDiv {
+    float: left;
+    height: 34px;
+}
+
+.formArea {
     margin-bottom: -20px;
 }
 
@@ -64,17 +52,15 @@ h4 {
 }
 
 .commentBtn {
-
-    margin-bottom: 20px;
+    margin-left: 20px;
 }
 
 textarea {
     width: 400px;
-    height: 30px;
+    height: 34px;
     margin-left: auto;
     margin-right: auto;
     font-size: 14px;
-
 }
 
 footer {
