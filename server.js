@@ -48,7 +48,7 @@ app.use('/articles', articles_controller);
 
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/testmongoose");
+mongoose.connect("mongodb://heroku_qrhg0vn9:otiqhj8ccdb9j9eoghckl1c7bp@ds133388.mlab.com:33388/heroku_qrhg0vn9");
 var db = mongoose.connection;
 
 // Show any mongoose errors
